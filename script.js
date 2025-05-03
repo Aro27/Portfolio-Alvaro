@@ -45,7 +45,10 @@ function updateThemeIcon(isDark) {
 // Traducciones básicas para las secciones principales
 const translations = {
     es: {
-        nav: ["Inicio", "Sobre mí", "Educación", "Certificaciones", "Experiencia", "Contacto"],
+        nav: ["Inicio", "Sobre mí", "Experiencia Laboral", "Contacto"],
+        dropdown: {
+            items: ["Perfil", "Educación", "Certificaciones"]
+        },
         hero: {
             subtitle: "Especialista en Ciberseguridad y Administración de Sistemas"
         },
@@ -65,7 +68,7 @@ const translations = {
             title: "Educación",
             items: [
                 {
-                    date: "Septiembre 2024 - Junio 2026",
+                    date: "Octubre 2024 - Junio 2025",
                     title: "Especialización en Ciberseguridad",
                     center: "IES El Caminás",
                     location: "Castellón, Comunidad Valenciana, España"
@@ -78,7 +81,7 @@ const translations = {
                     grade: "Nota: 8,93"
                 },
                 {
-                    date: "Septiembre 2019 - Junio 2022",
+                    date: "Septiembre 2020 - Junio 2022",
                     title: "Bachillerato, Humanidades y Ciencias Sociales",
                     center: "IES Jaume I",
                     location: "Castellón, Comunidad Valenciana, España",
@@ -149,7 +152,10 @@ const translations = {
         }
     },
     en: {
-        nav: ["Home", "About", "Education", "Certifications", "Experience", "Contact"],
+        nav: ["Home", "About", "Work Experience", "Contact"],
+        dropdown: {
+            items: ["Profile", "Education", "Certifications"]
+        },
         hero: {
             subtitle: "Cybersecurity and Systems Administration Specialist"
         },
@@ -169,7 +175,7 @@ const translations = {
             title: "Education",
             items: [
                 {
-                    date: "September 2024 - June 2026",
+                    date: "October 2024 - June 2025",
                     title: "Specialization in Cybersecurity",
                     center: "IES El Caminás",
                     location: "Castellón, Valencian Community, Spain"
@@ -182,7 +188,7 @@ const translations = {
                     grade: "Grade: 8.93"
                 },
                 {
-                    date: "September 2019 - June 2022",
+                    date: "September 2020 - June 2022",
                     title: "High School, Humanities and Social Sciences",
                     center: "IES Jaume I",
                     location: "Castellón, Valencian Community, Spain",
@@ -255,13 +261,21 @@ const translations = {
 };
 
 function updateLanguage(language) {
-    // Navegación
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach((link, i) => {
-        const icon = link.querySelector('i');
-        const text = link.childNodes[1];
-        if (translations[language].nav[i]) {
-            text.textContent = translations[language].nav[i];
+    // Navegación principal
+    const navLinks = document.querySelectorAll('.nav-links > li > a');
+    translations[language].nav.forEach((text, i) => {
+        if (navLinks[i]) {
+            const icon = navLinks[i].querySelector('i');
+            navLinks[i].innerHTML = icon ? `${icon.outerHTML}${text}` : text;
+        }
+    });
+
+    // Elementos del dropdown
+    const dropdownItems = document.querySelectorAll('.dropdown-menu a');
+    translations[language].dropdown.items.forEach((text, i) => {
+        if (dropdownItems[i]) {
+            const icon = dropdownItems[i].querySelector('i');
+            dropdownItems[i].innerHTML = icon ? `${icon.outerHTML}${text}` : text;
         }
     });
 
@@ -661,4 +675,50 @@ function revealOnScroll() {
 }
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('resize', revealOnScroll);
-document.addEventListener('DOMContentLoaded', revealOnScroll); 
+document.addEventListener('DOMContentLoaded', revealOnScroll);
+
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const closeMenuBtn = document.querySelector('.close-menu');
+    const sidebarLinks = document.querySelectorAll('.sidebar-links a');
+
+    function openSidebar() {
+        sidebarMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+        sidebarMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (mobileMenuToggle && sidebarMenu) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            openSidebar();
+        });
+    }
+    if (closeMenuBtn) {
+        closeMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeSidebar();
+        });
+    }
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeSidebar();
+        });
+    });
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', function(e) {
+        if (sidebarMenu.classList.contains('active') && !sidebarMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+            closeSidebar();
+        }
+    });
+    // Cerrar menú al cambiar tamaño de pantalla
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            closeSidebar();
+        }
+    });
+}); 
