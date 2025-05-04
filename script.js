@@ -45,7 +45,7 @@ function updateThemeIcon(isDark) {
 // Traducciones básicas para las secciones principales
 const translations = {
     es: {
-        nav: ["Inicio", "Sobre mí", "Experiencia Laboral", "Contacto"],
+        nav: ["Inicio", "Sobre mí", "Experiencia Laboral", "Recomendación", "Contacto"],
         dropdown: {
             items: ["Perfil", "Educación", "Certificaciones"]
         },
@@ -152,7 +152,7 @@ const translations = {
         }
     },
     en: {
-        nav: ["Home", "About", "Work Experience", "Contact"],
+        nav: ["Home", "About", "Work Experience", "Recommendation", "Contact"],
         dropdown: {
             items: ["Profile", "Education", "Certifications"]
         },
