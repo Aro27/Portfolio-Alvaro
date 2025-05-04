@@ -382,6 +382,22 @@ function updateLanguage(language) {
             if (level) level.textContent = item.level;
         }
     });
+
+    // Recomendación profesional
+    const recomendacionEs = document.getElementById('recomendacion-es');
+    const recomendacionEn = document.getElementById('recomendacion-en');
+    const recomendacionTitle = document.getElementById('recomendacion-title');
+    if (recomendacionEs && recomendacionEn && recomendacionTitle) {
+        if (language === 'es') {
+            recomendacionEs.style.display = '';
+            recomendacionEn.style.display = 'none';
+            recomendacionTitle.textContent = 'Recomendación Profesional';
+        } else {
+            recomendacionEs.style.display = 'none';
+            recomendacionEn.style.display = '';
+            recomendacionTitle.textContent = 'Professional Recommendation';
+        }
+    }
 }
 
 // Función para inicializar el idioma
