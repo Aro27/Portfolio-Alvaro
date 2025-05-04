@@ -152,7 +152,7 @@ const translations = {
         }
     },
     en: {
-        nav: ["Home", "About", "Work Experience", "Recommendation", "Contact"],
+        nav: ["Home", "About Me", "Work Experience", "Recommendation", "Contact"],
         dropdown: {
             items: ["Profile", "Education", "Certifications"]
         },
