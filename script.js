@@ -6,7 +6,6 @@ let currentTheme = localStorage.getItem('theme') || 'light';
 document.addEventListener('DOMContentLoaded', () => {
     initializeTheme();
     initializeLanguage();
-    initializeMobileMenu();
     initializeAnimations();
     revealOnScroll();
 });
@@ -418,51 +417,6 @@ function initializeLanguage() {
     }
 }
 
-// Función para inicializar el menú móvil
-function initializeMobileMenu() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const menuContainer = document.querySelector('.menu-container');
-
-    if (mobileMenuToggle && navLinks) {
-        mobileMenuToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle('active');
-            menuContainer?.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-        });
-
-        // Cerrar menú al hacer clic en un enlace
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    navLinks.classList.remove('active');
-                    menuContainer?.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-
-        // Cerrar menú al hacer clic fuera
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-                navLinks.classList.remove('active');
-                menuContainer?.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Cerrar menú al cambiar tamaño de pantalla
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                navLinks.classList.remove('active');
-                menuContainer?.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    }
-}
-
 // Función para inicializar animaciones
 function initializeAnimations() {
     const elements = document.querySelectorAll('section, h2, .about-content, .about-stats, .skill-card, .project-card, .contact-content');
@@ -710,8 +664,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (mobileMenuToggle && sidebarMenu) {
         mobileMenuToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            openSidebar();
+            if (e.currentTarget === e.target || e.target.tagName === 'I') {
+                openSidebar();
+            }
         });
     }
     if (closeMenuBtn) {
