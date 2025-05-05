@@ -121,16 +121,22 @@ body::before {
 }
 
 .nav-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    position: relative;
     gap: 2rem;
     max-width: unset;
     padding: 0;
+}
+
+.right-align {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: rem;
 }
 
 .logo {
@@ -183,6 +189,7 @@ body::before {
     align-items: center;
     gap: 1rem;
     margin-left: 0;
+    margin-right: 1rem;
     position: static;
     right: 0;
     top: auto;
@@ -292,15 +299,7 @@ body::before {
     .nav-buttons {
         margin-left: 0;
     }
-    .nav-content {
-        width: 100%;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
-        max-width: unset;
-        padding: 0;
-    }
+    
 }
 
 /* Hero Section */
@@ -363,7 +362,7 @@ body::before {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover;
-    object-position: 50% 20%;
+    object-position: 30% 10%;
     display: block;
 }
 
@@ -2112,11 +2111,13 @@ body.light-section-visible {
 
 /* Menu Styles */
 .menu-container {
-    position: relative;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
-    justify-content: center;
     height: 100%;
+    z-index: 2;
 }
 
 .menu-button {
