@@ -269,6 +269,27 @@ function updateLanguage(language) {
         }
     });
 
+    // Navegación lateral (menú móvil)
+    const sidebarLinks = document.querySelectorAll('.sidebar-links > li > a');
+    // Traduce los primeros 5 enlaces (Home, About, Education, Certifications, Experience)
+    const sidebarNavTexts = translations[language].nav;
+    for (let i = 0; i < sidebarLinks.length; i++) {
+        let text = '';
+        if (i === 0) text = sidebarNavTexts[0]; // Home
+        else if (i === 1) text = sidebarNavTexts[1]; // About
+        else if (i === 2) text = 'Education'; // Education (no está en nav)
+        else if (i === 3) text = 'Certifications'; // Certifications (no está en nav)
+        else if (i === 4) text = sidebarNavTexts[2]; // Experience
+        else if (i === 5) text = sidebarNavTexts[3]; // Recommendation
+        else if (i === 6) text = sidebarNavTexts[4]; // Contact
+        const icon = sidebarLinks[i].querySelector('i');
+        if (icon) {
+            sidebarLinks[i].innerHTML = `${icon.outerHTML}${text}`;
+        } else {
+            sidebarLinks[i].textContent = text;
+        }
+    }
+
     // Elementos del dropdown
     const dropdownItems = document.querySelectorAll('.dropdown-menu a');
     translations[language].dropdown.items.forEach((text, i) => {
