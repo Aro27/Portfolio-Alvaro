@@ -2274,18 +2274,33 @@ body.light-section-visible {
 .dropdown-toggle {
     display: flex;
     align-items: center;
-    gap: 5px;
-    cursor: pointer;
+    gap: 0.5rem;
 }
 
+.dropdown-toggle i.fa-chevron-down {
+    font-size: 1.5rem !important;
+    color: #3498db !important;
+    margin-left: 0.6rem !important;
+    opacity: 1 !important;
+    display: inline !important;
+    vertical-align: middle !important;
+    z-index: 10000 !important;
+    position: static !important;
+    visibility: visible !important;
+    pointer-events: none;
+}
+
+.dropdown:hover .dropdown-toggle i.fa-chevron-down {
+    color: #7FB3FF !important;
+    transform: rotate(180deg) scale(1.1);
+    opacity: 1 !important;
+}
+
+/* Refuerzo para evitar que reglas globales oculten la flecha */
+.dropdown-toggle i.fa-chevron-down,
 .dropdown-toggle .fa-chevron-down {
-    font-size: 0.8em;
-    transition: transform 0.3s ease;
-    margin-left: 5px;
-}
-
-.dropdown:hover .fa-chevron-down {
-    transform: rotate(180deg);
+    visibility: visible !important;
+    position: static !important;
 }
 
 .dropdown-menu {

@@ -41,7 +41,11 @@
                 <ul class="nav-links">
                     <li><a href="#home"><i class="fas fa-home"></i>Inicio</a></li>
                     <li class="dropdown">
-                        <a href="#about" class="dropdown-toggle"><i class="fas fa-user"></i>Sobre mí <i class="fas fa-chevron-down"></i></a>
+                        <a href="#about" class="dropdown-toggle">
+                            <i class="fas fa-user"></i>
+                            <span>Sobre mí</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
                         <ul class="dropdown-menu">
                             <li><a href="#about"><i class="fas fa-user"></i>Perfil</a></li>
                             <li><a href="#education"><i class="fas fa-graduation-cap"></i>Educación</a></li>
@@ -153,34 +157,45 @@
 
     <section id="certifications" class="certifications">
         <h2>Certificaciones</h2>
-        <div class="cert-cards-container">
-            <div class="cert-card">
-                <div class="cert-card-img"><img src="assets/images/az-900.png" alt="Azure Fundamentals"></div>
-                <h3>Microsoft Certified: Aspectos básicos de Azure (AZ-900)</h3>
-                <div class="cert-card-entity">Microsoft</div>
-                <div class="cert-card-date">feb. 2025</div>
-                <a href="https://learn.microsoft.com/api/credentials/share/es-es/lvaroMesado-5048/46EE98A0E529A67F?sharingId=F14754A55D4400FA" target="_blank">Ver credencial</a>
+        <div class="cert-cards-container" style="flex-direction: column; align-items: center;">
+            <div class="cert-card-row" style="display: flex; justify-content: center; gap: 2rem; width: 100%; max-width: 900px; margin-bottom: 0.5rem;">
+                <div class="cert-card">
+                    <div class="cert-card-img"><img src="assets/images/udemy.png" alt="Python Udemy"></div>
+                    <h3>Certificado de programación Python (Nivel intermedio)</h3>
+                    <div class="cert-card-entity">Udemy</div>
+                    <div class="cert-card-date">may. 2025</div>
+                    <a href="https://www.ude.my/UC-f7f11328-b614-4b59-9cee-a7af3a982593" target="_blank">Ver credencial</a>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-card-img"><img src="assets/images/az-900.png" alt="Azure Fundamentals"></div>
+                    <h3>Microsoft Certified: Aspectos básicos de Azure (AZ-900)</h3>
+                    <div class="cert-card-entity">Microsoft</div>
+                    <div class="cert-card-date">feb. 2025</div>
+                    <a href="https://learn.microsoft.com/api/credentials/share/es-es/lvaroMesado-5048/46EE98A0E529A67F?sharingId=F14754A55D4400FA" target="_blank">Ver credencial</a>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-card-img"><img src="assets/images/udemy.png" alt="Active Directory"></div>
+                    <h3>Certificado de Administración de Active Directory</h3>
+                    <div class="cert-card-entity">Udemy</div>
+                    <div class="cert-card-date">may. 2024</div>
+                    <a href="https://www.udemy.com/certificate/UC-d4e11f64-4f98-4980-ba01-7a085ad3651a/" target="_blank">Ver credencial</a>
+                </div>
             </div>
-            <div class="cert-card">
-                <div class="cert-card-img"><img src="assets/images/udemy.png" alt="Active Directory"></div>
-                <h3>Certificado de Administración de Active Directory</h3>
-                <div class="cert-card-entity">Udemy</div>
-                <div class="cert-card-date">may. 2024</div>
-                <a href="https://www.udemy.com/certificate/UC-d4e11f64-4f98-4980-ba01-7a085ad3651a/" target="_blank">Ver credencial</a>
-            </div>
-            <div class="cert-card google-align-fix">
-                <div class="cert-card-img"><img src="assets/images/google-activate.jpg" alt="Google Activate"></div>
-                <h3>Ciberseguridad en el Teletrabajo</h3>
-                <div class="cert-card-entity google-entity-fix">Google Actívate</div>
-                <div class="cert-card-date">may. 2022</div>
-                <a href="https://drive.google.com/file/d/1NkNtRETzDFDlsYkQF5Hui8EFl5ho82Qz/view?usp=sharing" target="_blank">Ver credencial</a>
-            </div>
-            <div class="cert-card">
-                <div class="cert-card-img"><img src="assets/images/vortex.png" alt="Vortex Academy"></div>
-                <h3>Certificado de Sistemas Operativos e instalación de software</h3>
-                <div class="cert-card-entity">Vortex Academy</div>
-                <div class="cert-card-date">dic. 2021</div>
-                <a href="https://drive.google.com/file/d/1uN2eK4okSAcl4YYJrsQGqCpixHYtusyQ/view?usp=sharing" target="_blank">Ver credencial</a>
+            <div class="cert-card-row" style="display: flex; justify-content: center; gap: 2rem; width: 100%; max-width: 600px; margin-top: 0;">
+                <div class="cert-card google-align-fix">
+                    <div class="cert-card-img"><img src="assets/images/google-activate.jpg" alt="Google Activate"></div>
+                    <h3>Ciberseguridad en el Teletrabajo</h3>
+                    <div class="cert-card-entity google-entity-fix">Google Actívate</div>
+                    <div class="cert-card-date">may. 2022</div>
+                    <a href="https://drive.google.com/file/d/1NkNtRETzDFDlsYkQF5Hui8EFl5ho82Qz/view?usp=sharing" target="_blank">Ver credencial</a>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-card-img"><img src="assets/images/vortex.png" alt="Vortex Academy"></div>
+                    <h3>Certificado de Sistemas Operativos e instalación de software</h3>
+                    <div class="cert-card-entity">Vortex Academy</div>
+                    <div class="cert-card-date">dic. 2021</div>
+                    <a href="https://drive.google.com/file/d/1uN2eK4okSAcl4YYJrsQGqCpixHYtusyQ/view?usp=sharing" target="_blank">Ver credencial</a>
+                </div>
             </div>
         </div>
     </section>
