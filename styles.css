@@ -2879,4 +2879,57 @@ body, section, .hero, .certifications, .education, .experience, .projects, .cont
     line-height: 1.8;
     font-size: 1.1rem;
 }
+
+/* Estilos para el contenedor de certificados */
+.certificados-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Estilo para escritorio (varias columnas) */
+@media (min-width: 768px) {
+  .certificados-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .certificado-tarjeta {
+    width: 300px;
+  }
+}
+
+/* Estilo para móvil (una columna) */
+@media (max-width: 767px) {
+  .certificados-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .certificado-tarjeta {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cert-cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cert-card-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+  }
+  .cert-card {
+    width: 95vw !important;
+    max-width: 400px !important;
+    margin-bottom: 1.5rem !important;
+  }
+}
   

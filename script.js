@@ -277,8 +277,8 @@ function updateLanguage(language) {
         let text = '';
         if (i === 0) text = sidebarNavTexts[0]; // Home
         else if (i === 1) text = sidebarNavTexts[1]; // About
-        else if (i === 2) text = 'Education'; // Education (no está en nav)
-        else if (i === 3) text = 'Certifications'; // Certifications (no está en nav)
+        else if (i === 2) text = language === 'es' ? 'Educación' : 'Education';
+        else if (i === 3) text = language === 'es' ? 'Certificaciones' : 'Certifications';
         else if (i === 4) text = sidebarNavTexts[2]; // Experience
         else if (i === 5) text = sidebarNavTexts[3]; // Recommendation
         else if (i === 6) text = sidebarNavTexts[4]; // Contact
