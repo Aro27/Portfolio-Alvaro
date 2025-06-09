@@ -271,18 +271,15 @@ function updateLanguage(language) {
         languageToggle.querySelector('.language-text').textContent = language.toUpperCase();
     }
 
-    // Solo actualizar el contenido si el idioma no es español
-    if (language !== 'es') {
-        // Actualizar el contenido de la sección "Sobre Mí"
-        const aboutSection = document.querySelector('.about-content');
-        if (aboutSection) {
-            const paragraphs = aboutSection.querySelectorAll('p');
-            translations[language].about.paragraphs.forEach((text, index) => {
-                if (paragraphs[index]) {
-                    paragraphs[index].textContent = text;
-                }
-            });
-        }
+    // Actualizar el contenido de la sección "Sobre Mí"
+    const aboutSection = document.querySelector('.about-content');
+    if (aboutSection) {
+        const paragraphs = aboutSection.querySelectorAll('p');
+        translations[language].about.paragraphs.forEach((text, index) => {
+            if (paragraphs[index]) {
+                paragraphs[index].textContent = text;
+            }
+        });
     }
 
     // Actualizar el texto de años de experiencia
