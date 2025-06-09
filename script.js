@@ -161,7 +161,7 @@ const translations = {
         about: {
             title: "About Me",
             paragraphs: [
-                "I am a student specialized in IT Cybersecurity, with a solid background in Networked Computer Systems Administration (ASIR). My professional experience includes working as a support technician at À Punt Mèdia, where I developed key skills in managing and solving technological incidents.",
+                "I am a professional specialized in Cybersecurity in IT environments, with a background in Networked Computer Systems Administration (ASIR) and a completed specialization in Cybersecurity. My professional experience includes working as a support technician at À Punt Mèdia, where I developed key skills in managing and resolving technological incidents.",
                 "My professional focus is on protecting digital infrastructures, with experience in areas such as access control, identity management with Active Directory, and system hardening to mitigate vulnerabilities. I also have experience in network traffic monitoring and incident detection and analysis using SIEM technologies.",
                 "I am committed to continuous improvement, not only in cybersecurity but also in process automation with Python and cloud computing, especially with Azure. My ability to combine technical knowledge with an analytical and problem-solving mindset allows me to tackle challenges with focus and precision.",
                 "I consider myself a responsible person, team-oriented, and with a strong interest in providing effective solutions that optimize the security and reliability of systems. My goal is to continue growing in the field of cybersecurity, actively contributing to the protection of digital assets in IT environments."
