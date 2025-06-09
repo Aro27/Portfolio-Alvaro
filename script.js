@@ -77,14 +77,14 @@ const translations = {
                     date: "Septiembre 2022 - Junio 2024",
                     title: "Administración de Sistemas Informáticos y Redes",
                     center: "IES Jaume I",
-                    location: "Castellón, Comunidad Valenciana, España",
+                    location: "Burriana, Comunidad Valenciana, España",
                     grade: "Nota: 8,93"
                 },
                 {
                     date: "Septiembre 2020 - Junio 2022",
                     title: "Bachillerato, Humanidades y Ciencias Sociales",
                     center: "IES Jaume I",
-                    location: "Castellón, Comunidad Valenciana, España",
+                    location: "Burriana, Comunidad Valenciana, España",
                     grade: "Nota: 8,4"
                 }
             ]
@@ -185,14 +185,14 @@ const translations = {
                     date: "September 2022 - June 2024",
                     title: "Administration of Computer Systems and Networks",
                     center: "IES Jaume I",
-                    location: "Castellón, Valencian Community, Spain",
+                    location: "Burriana, Valencian Community, Spain",
                     grade: "Grade: 8.93"
                 },
                 {
                     date: "September 2020 - June 2022",
                     title: "High School, Humanities and Social Sciences",
                     center: "IES Jaume I",
-                    location: "Castellón, Valencian Community, Spain",
+                    location: "Burriana, Valencian Community, Spain",
                     grade: "Grade: 8.4"
                 }
             ]
