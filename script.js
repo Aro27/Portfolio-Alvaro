@@ -70,7 +70,8 @@ const translations = {
                     date: "Octubre 2024 - Junio 2025",
                     title: "Especialización en Ciberseguridad",
                     center: "IES El Caminás",
-                    location: "Castellón, Comunidad Valenciana, España"
+                    location: "Castellón, Comunidad Valenciana, España",
+                    grade: "Nota: 7,83"
                 },
                 {
                     date: "Septiembre 2022 - Junio 2024",
@@ -177,7 +178,8 @@ const translations = {
                     date: "October 2024 - June 2025",
                     title: "Specialization in Cybersecurity",
                     center: "IES El Caminás",
-                    location: "Castellón, Valencian Community, Spain"
+                    location: "Castellón, Valencian Community, Spain",
+                    grade: "Grade: 7.83"
                 },
                 {
                     date: "September 2022 - June 2024",
@@ -260,164 +262,42 @@ const translations = {
 };
 
 function updateLanguage(language) {
-    // Navegación principal
-    const navLinks = document.querySelectorAll('.nav-links > li > a');
-    translations[language].nav.forEach((text, i) => {
-        if (navLinks[i]) {
-            const icon = navLinks[i].querySelector('i');
-            navLinks[i].innerHTML = icon ? `${icon.outerHTML}${text}` : text;
-        }
-    });
+    currentLanguage = language;
+    localStorage.setItem('language', language);
+    
+    // Actualizar el texto del botón de idioma
+    const languageToggle = document.getElementById('language-toggle');
+    if (languageToggle) {
+        languageToggle.querySelector('.language-text').textContent = language.toUpperCase();
+    }
 
-    // Navegación lateral (menú móvil)
-    const sidebarLinks = document.querySelectorAll('.sidebar-links > li > a');
-    // Traduce los primeros 5 enlaces (Home, About, Education, Certifications, Experience)
-    const sidebarNavTexts = translations[language].nav;
-    for (let i = 0; i < sidebarLinks.length; i++) {
-        let text = '';
-        if (i === 0) text = sidebarNavTexts[0]; // Home
-        else if (i === 1) text = sidebarNavTexts[1]; // About
-        else if (i === 2) text = language === 'es' ? 'Educación' : 'Education';
-        else if (i === 3) text = language === 'es' ? 'Certificaciones' : 'Certifications';
-        else if (i === 4) text = sidebarNavTexts[2]; // Experience
-        else if (i === 5) text = sidebarNavTexts[3]; // Recommendation
-        else if (i === 6) text = sidebarNavTexts[4]; // Contact
-        const icon = sidebarLinks[i].querySelector('i');
-        if (icon) {
-            sidebarLinks[i].innerHTML = `${icon.outerHTML}${text}`;
-        } else {
-            sidebarLinks[i].textContent = text;
+    // Solo actualizar el contenido si el idioma no es español
+    if (language !== 'es') {
+        // Actualizar el contenido de la sección "Sobre Mí"
+        const aboutSection = document.querySelector('.about-content');
+        if (aboutSection) {
+            const paragraphs = aboutSection.querySelectorAll('p');
+            translations[language].about.paragraphs.forEach((text, index) => {
+                if (paragraphs[index]) {
+                    paragraphs[index].textContent = text;
+                }
+            });
         }
     }
 
-    // Elementos del dropdown
-    const dropdownItems = document.querySelectorAll('.dropdown-menu a');
-    translations[language].dropdown.items.forEach((text, i) => {
-        if (dropdownItems[i]) {
-            const icon = dropdownItems[i].querySelector('i');
-            dropdownItems[i].innerHTML = icon ? `${icon.outerHTML}${text}` : text;
-        }
-    });
-
-    // Hero subtitle
-    const subtitle = document.querySelector('.subtitle');
-    if (subtitle) subtitle.textContent = translations[language].hero.subtitle;
-
-    // About
-    const aboutTitle = document.querySelector('#about h2');
-    if (aboutTitle) aboutTitle.textContent = translations[language].about.title;
-    
-    const aboutParagraphs = document.querySelectorAll('.about-content p');
-    translations[language].about.paragraphs.forEach((text, i) => {
-        if (aboutParagraphs[i]) aboutParagraphs[i].textContent = text;
-    });
-
-    // Stats
+    // Actualizar el texto de años de experiencia
     const statLabel = document.querySelector('.stat-label');
-    if (statLabel) statLabel.textContent = translations[language].stats.years;
-
-    // Education
-    const eduTitle = document.querySelector('#education h2');
-    if (eduTitle) eduTitle.textContent = translations[language].education.title;
-    
-    const eduItems = document.querySelectorAll('.education-item');
-    translations[language].education.items.forEach((item, i) => {
-        if (eduItems[i]) {
-            const date = eduItems[i].querySelector('.education-date span');
-            const title = eduItems[i].querySelector('.edu-title');
-            const center = eduItems[i].querySelector('.edu-center');
-            const location = eduItems[i].querySelector('.edu-location');
-            const grade = eduItems[i].querySelector('.edu-grade');
-            
-            if (date) date.textContent = item.date;
-            if (title) title.textContent = item.title;
-            if (center) center.textContent = item.center;
-            if (location) location.textContent = item.location;
-            if (grade && item.grade) grade.textContent = item.grade;
-        }
-    });
-
-    // Certifications
-    const certTitle = document.querySelector('#certifications h2');
-    if (certTitle) certTitle.textContent = translations[language].certifications.title;
-    
-    const certItems = document.querySelectorAll('.certification-item');
-    translations[language].certifications.items.forEach((item, i) => {
-        if (certItems[i]) {
-            const date = certItems[i].querySelector('.certification-date span');
-            const title = certItems[i].querySelector('.certification-content h3');
-            const center = certItems[i].querySelector('.certification-content h4');
-            const link = certItems[i].querySelector('.certification-content a');
-            
-            if (date) date.textContent = item.date;
-            if (title) title.textContent = item.title;
-            if (center) center.textContent = item.center;
-            if (link) {
-                link.textContent = item.linkText;
-                link.href = item.link;
-            }
-        }
-    });
-
-    // Experience
-    const expTitle = document.querySelector('#experience h2');
-    if (expTitle) expTitle.textContent = translations[language].experience.title;
-    
-    const expItems = document.querySelectorAll('.experience-item');
-    translations[language].experience.items.forEach((item, i) => {
-        if (expItems[i]) {
-            const date = expItems[i].querySelector('.experience-date span');
-            const title = expItems[i].querySelector('.experience-content h3');
-            const company = expItems[i].querySelector('.experience-content h4');
-            const location = expItems[i].querySelector('.experience-content h5');
-            const role = expItems[i].querySelector('.role-title');
-            const desc = expItems[i].querySelector('.experience-description');
-            const tasks = expItems[i].querySelectorAll('.experience-tasks li');
-            const footer = expItems[i].querySelector('.experience-footer');
-            
-            if (date) date.textContent = item.date;
-            if (title) title.textContent = item.title;
-            if (company) company.textContent = item.company;
-            if (location) location.textContent = item.location;
-            if (role) role.textContent = item.role;
-            if (desc) desc.textContent = item.description;
-            if (tasks) item.tasks.forEach((t, j) => { if (tasks[j]) tasks[j].textContent = t; });
-            if (footer) footer.textContent = item.footer;
-        }
-    });
-
-    // Contact
-    const contactTitle = document.querySelector('#contact h2');
-    if (contactTitle) contactTitle.textContent = translations[language].contact.title;
-    
-    const langTitle = document.querySelector('.languages h3');
-    if (langTitle) langTitle.textContent = translations[language].contact.languages;
-    
-    const langItems = document.querySelectorAll('.language-item');
-    translations[language].contact.languageList.forEach((item, i) => {
-        if (langItems[i]) {
-            const name = langItems[i].querySelector('.language-name');
-            const level = langItems[i].querySelector('.language-level');
-            if (name) name.textContent = item.name;
-            if (level) level.textContent = item.level;
-        }
-    });
-
-    // Recomendación profesional
-    const recomendacionEs = document.getElementById('recomendacion-es');
-    const recomendacionEn = document.getElementById('recomendacion-en');
-    const recomendacionTitle = document.getElementById('recomendacion-title');
-    if (recomendacionEs && recomendacionEn && recomendacionTitle) {
-        if (language === 'es') {
-            recomendacionEs.style.display = '';
-            recomendacionEn.style.display = 'none';
-            recomendacionTitle.textContent = 'Recomendación Profesional';
-        } else {
-            recomendacionEs.style.display = 'none';
-            recomendacionEn.style.display = '';
-            recomendacionTitle.textContent = 'Professional Recommendation';
-        }
+    if (statLabel) {
+        statLabel.textContent = translations[language].stats.years;
     }
+
+    // Actualizar otros elementos de la página
+    updateNavigation(language);
+    updateEducation(language);
+    updateCertifications(language);
+    updateExperience(language);
+    updateContact(language);
+    updateRecommendation(language);
 }
 
 // Función para inicializar el idioma
@@ -713,4 +593,152 @@ document.addEventListener('DOMContentLoaded', function() {
             closeSidebar();
         }
     });
-}); 
+});
+
+function updateNavigation(language) {
+    // Navegación principal
+    const navLinks = document.querySelectorAll('.nav-links > li > a');
+    translations[language].nav.forEach((text, i) => {
+        if (navLinks[i]) {
+            const icon = navLinks[i].querySelector('i');
+            navLinks[i].innerHTML = icon ? `${icon.outerHTML}${text}` : text;
+        }
+    });
+
+    // Navegación lateral (menú móvil)
+    const sidebarLinks = document.querySelectorAll('.sidebar-links > li > a');
+    const sidebarNavTexts = translations[language].nav;
+    for (let i = 0; i < sidebarLinks.length; i++) {
+        let text = '';
+        if (i === 0) text = sidebarNavTexts[0]; // Home
+        else if (i === 1) text = sidebarNavTexts[1]; // About
+        else if (i === 2) text = language === 'es' ? 'Educación' : 'Education';
+        else if (i === 3) text = language === 'es' ? 'Certificaciones' : 'Certifications';
+        else if (i === 4) text = sidebarNavTexts[2]; // Experience
+        else if (i === 5) text = sidebarNavTexts[3]; // Recommendation
+        else if (i === 6) text = sidebarNavTexts[4]; // Contact
+        const icon = sidebarLinks[i].querySelector('i');
+        if (icon) {
+            sidebarLinks[i].innerHTML = `${icon.outerHTML}${text}`;
+        } else {
+            sidebarLinks[i].textContent = text;
+        }
+    }
+
+    // Elementos del dropdown
+    const dropdownItems = document.querySelectorAll('.dropdown-menu a');
+    translations[language].dropdown.items.forEach((text, i) => {
+        if (dropdownItems[i]) {
+            const icon = dropdownItems[i].querySelector('i');
+            dropdownItems[i].innerHTML = icon ? `${icon.outerHTML}${text}` : text;
+        }
+    });
+}
+
+function updateEducation(language) {
+    const eduTitle = document.querySelector('#education h2');
+    if (eduTitle) eduTitle.textContent = translations[language].education.title;
+    
+    const eduItems = document.querySelectorAll('.education-item');
+    translations[language].education.items.forEach((item, i) => {
+        if (eduItems[i]) {
+            const date = eduItems[i].querySelector('.education-date span');
+            const title = eduItems[i].querySelector('.edu-title');
+            const center = eduItems[i].querySelector('.edu-center');
+            const location = eduItems[i].querySelector('.edu-location');
+            const grade = eduItems[i].querySelector('.edu-grade');
+            
+            if (date) date.textContent = item.date;
+            if (title) title.textContent = item.title;
+            if (center) center.textContent = item.center;
+            if (location) location.textContent = item.location;
+            if (grade && item.grade) grade.textContent = item.grade;
+        }
+    });
+}
+
+function updateCertifications(language) {
+    const certTitle = document.querySelector('#certifications h2');
+    if (certTitle) certTitle.textContent = translations[language].certifications.title;
+    
+    const certItems = document.querySelectorAll('.certification-item');
+    translations[language].certifications.items.forEach((item, i) => {
+        if (certItems[i]) {
+            const date = certItems[i].querySelector('.certification-date span');
+            const title = certItems[i].querySelector('.certification-content h3');
+            const center = certItems[i].querySelector('.certification-content h4');
+            const link = certItems[i].querySelector('.certification-content a');
+            
+            if (date) date.textContent = item.date;
+            if (title) title.textContent = item.title;
+            if (center) center.textContent = item.center;
+            if (link) {
+                link.textContent = item.linkText;
+                link.href = item.link;
+            }
+        }
+    });
+}
+
+function updateExperience(language) {
+    const expTitle = document.querySelector('#experience h2');
+    if (expTitle) expTitle.textContent = translations[language].experience.title;
+    
+    const expItems = document.querySelectorAll('.experience-item');
+    translations[language].experience.items.forEach((item, i) => {
+        if (expItems[i]) {
+            const date = expItems[i].querySelector('.experience-date span');
+            const title = expItems[i].querySelector('.experience-content h3');
+            const company = expItems[i].querySelector('.experience-content h4');
+            const location = expItems[i].querySelector('.experience-content h5');
+            const role = expItems[i].querySelector('.role-title');
+            const desc = expItems[i].querySelector('.experience-description');
+            const tasks = expItems[i].querySelectorAll('.experience-tasks li');
+            const footer = expItems[i].querySelector('.experience-footer');
+            
+            if (date) date.textContent = item.date;
+            if (title) title.textContent = item.title;
+            if (company) company.textContent = item.company;
+            if (location) location.textContent = item.location;
+            if (role) role.textContent = item.role;
+            if (desc) desc.textContent = item.description;
+            if (tasks) item.tasks.forEach((t, j) => { if (tasks[j]) tasks[j].textContent = t; });
+            if (footer) footer.textContent = item.footer;
+        }
+    });
+}
+
+function updateContact(language) {
+    const contactTitle = document.querySelector('#contact h2');
+    if (contactTitle) contactTitle.textContent = translations[language].contact.title;
+    
+    const langTitle = document.querySelector('.languages h3');
+    if (langTitle) langTitle.textContent = translations[language].contact.languages;
+    
+    const langItems = document.querySelectorAll('.language-item');
+    translations[language].contact.languageList.forEach((item, i) => {
+        if (langItems[i]) {
+            const name = langItems[i].querySelector('.language-name');
+            const level = langItems[i].querySelector('.language-level');
+            if (name) name.textContent = item.name;
+            if (level) level.textContent = item.level;
+        }
+    });
+}
+
+function updateRecommendation(language) {
+    const recomendacionEs = document.getElementById('recomendacion-es');
+    const recomendacionEn = document.getElementById('recomendacion-en');
+    const recomendacionTitle = document.getElementById('recomendacion-title');
+    if (recomendacionEs && recomendacionEn && recomendacionTitle) {
+        if (language === 'es') {
+            recomendacionEs.style.display = '';
+            recomendacionEn.style.display = 'none';
+            recomendacionTitle.textContent = 'Recomendación Profesional';
+        } else {
+            recomendacionEs.style.display = 'none';
+            recomendacionEn.style.display = '';
+            recomendacionTitle.textContent = 'Professional Recommendation';
+        }
+    }
+} 
