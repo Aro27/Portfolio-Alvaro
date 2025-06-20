@@ -119,6 +119,13 @@ const translations = {
                     center: "Vortex Academy",
                     link: "https://drive.google.com/file/d/1uN2eK4okSAcl4YYJrsQGqCpixHYtusyQ/view?usp=sharing",
                     linkText: "Ver credencial"
+                },
+                {
+                    date: "jun. 2025",
+                    title: "Microsoft Certified: Azure Data Fundamentals (DP-900)",
+                    center: "Certiport",
+                    link: "https://drive.google.com/file/d/1A3lp-LgqOJGwqM9Goo_p09-4J09lHr2x/view?usp=drive_link",
+                    linkText: "Ver credencial"
                 }
             ]
         },
@@ -226,6 +233,13 @@ const translations = {
                     title: "Operating Systems and Software Installation Certificate",
                     center: "Vortex Academy",
                     link: "https://drive.google.com/file/d/1uN2eK4okSAcl4YYJrsQGqCpixHYtusyQ/view?usp=sharing",
+                    linkText: "View credential"
+                },
+                {
+                    date: "Jun. 2025",
+                    title: "Microsoft Certified: Azure Data Fundamentals (DP-900)",
+                    center: "Certiport",
+                    link: "https://drive.google.com/file/d/1A3lp-LgqOJGwqM9Goo_p09-4J09lHr2x/view?usp=drive_link",
                     linkText: "View credential"
                 }
             ]
