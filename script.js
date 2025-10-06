@@ -133,6 +133,20 @@ const translations = {
             title: "Experiencia Laboral",
             items: [
                 {
+                    date: "sep. 2025 - Actualidad",
+                    title: "Desarrollador Web",
+                    company: "IWIGO",
+                    location: "Vila-real, España · Presencial · Jornada completa",
+                    role: "Desarrollo Web Seguro | WordPress, Elementor y CSS",
+                    description: "Diseño, desarrollo y mantenimiento de sitios web priorizando seguridad, rendimiento y disponibilidad.",
+                    tasks: [
+                        "Diseño y desarrollo de sitios web seguros con WordPress, Elementor y CSS.",
+                        "Gestión y resolución de incidentes de ciberseguridad en producción.",
+                        "Monitorización y copias de seguridad para garantizar disponibilidad y recuperación."
+                    ],
+                    footer: "Foco en buenas prácticas, continuidad de negocio y mejora continua del servicio."
+                },
+                {
                     date: "feb. 2024 - jun. 2024 · 5 meses",
                     title: "Service Desk",
                     company: "À Punt Mèdia · Contrato de prácticas",
@@ -247,6 +261,20 @@ const translations = {
         experience: {
             title: "Work Experience",
             items: [
+                {
+                    date: "Sep. 2025 - Present",
+                    title: "Web Developer",
+                    company: "IWIGO",
+                    location: "Vila-real, Spain · On-site · Full-time",
+                    role: "Secure Web Development | WordPress, Elementor and CSS",
+                    description: "Design, development and maintenance of websites prioritizing security, performance and availability.",
+                    tasks: [
+                        "Design and development of secure websites with WordPress, Elementor and CSS.",
+                        "Management and resolution of cybersecurity incidents in production.",
+                        "Monitoring and backups to ensure availability and recovery."
+                    ],
+                    footer: "Focus on best practices, business continuity and continuous service improvement."
+                },
                 {
                     date: "Feb. 2024 - Jun. 2024 · 5 months",
                     title: "Service Desk",

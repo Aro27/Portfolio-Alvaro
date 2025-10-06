@@ -1293,6 +1293,7 @@ body.light-section-visible {
     box-shadow: var(--card-shadow);
     position: relative;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .experience-item:hover {
@@ -1730,6 +1731,22 @@ body.light-section-visible {
     text-align: center;
     margin-bottom: 30px;
     color: var(--primary-color);
+}
+
+/* Align second experience card (À Punt) height with the first (IWIGO) */
+.experience-timeline .experience-item:nth-child(2) {
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+}
+.experience-timeline .experience-item:nth-child(2) .experience-content p {
+    margin-bottom: 0.6rem;
+}
+.experience-timeline .experience-item:nth-child(2) .experience-content .experience-description,
+.experience-timeline .experience-item:nth-child(2) .experience-content .experience-footer {
+    margin: 0.6rem 0;
+}
+.experience-timeline .experience-item:nth-child(2) .experience-tasks li {
+    margin-bottom: 0.3rem;
 }
 
 /* Scroll indicator for all sections */
